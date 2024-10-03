@@ -1,0 +1,2 @@
+#define wastebin_VERSION_MAJOR @wastebin_VERSION_MAJOR@
+#define wastebin_VERSION_MINOR @wastebin_VERSION_MINOR@

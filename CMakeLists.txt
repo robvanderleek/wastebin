@@ -1,4 +1,7 @@
 cmake_minimum_required(VERSION 3.30)
-project(wastebin)
+project(wastebin VERSION 0.1)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED true)
+configure_file(config.hpp.in config.hpp)
 add_executable(bin bin.cpp)
-
+target_include_directories(bin PUBLIC "${PROJECT_BINARY_DIR}")
