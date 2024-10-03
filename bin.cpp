@@ -1,12 +1,10 @@
 #include <iostream>
 
-#include "config.hpp"
+#include "binlib.hpp"
 
-using namespace std;
+using namespace binlib;
 
 int main(int argc, const char *argv[]) {
-    auto message = "wastebin v";
-    cout << message << wastebin_VERSION_MAJOR << "." << 
-        wastebin_VERSION_MINOR << endl;
+    version();
     return 0;
 }
