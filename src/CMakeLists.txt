@@ -6,8 +6,9 @@ set(MAIN_SOURCES
 set(UNITTEST_SOURCES
         tests/test_utils.cpp)
 
-add_executable(bin bin.cpp ${MAIN_SOURCES})
-target_include_directories(bin PUBLIC "${PROJECT_BINARY_DIR}/src")
+add_executable(wb wastebin.cpp ${MAIN_SOURCES})
+target_include_directories(wb PUBLIC "${PROJECT_BINARY_DIR}/src")
+install(TARGETS wb)
 
 add_executable(unittests ${MAIN_SOURCES} ${UNITTEST_SOURCES})
 target_include_directories(unittests PUBLIC "${PROJECT_BINARY_DIR}/src")
