@@ -1,8 +1,19 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.29.6)
+
 project(wastebin VERSION 0.1)
-set(CMAKE_CXX_STANDARD 11)
+
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED true)
-add_subdirectory(binlib)
-add_executable(bin bin.cpp)
-target_include_directories(bin PUBLIC "${PROJECT_SOURCE_DIR}/binlib")
-target_link_libraries(bin PUBLIC binlib)
+
+Include(FetchContent)
+
+FetchContent_Declare(
+        Catch2
+        GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+        GIT_TAG v3.3.2
+        GIT_SHALLOW ON
+)
+
+FetchContent_MakeAvailable(Catch2)
+
+add_subdirectory(src)
