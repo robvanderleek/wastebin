@@ -6,7 +6,7 @@ namespace wastebin {
     TEST_CASE("Get version", "[Test]") {
         std::string result = version();
 
-        REQUIRE(result == "wastebin v0.1");
+        REQUIRE(result == "0.1");
     }
 
     TEST_CASE("Test case 2", "[Test]") {
