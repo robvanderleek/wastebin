@@ -3,7 +3,7 @@
 #include "utils.hpp"
 
 int main(int argc, const char *argv[]) {
-    std::filesystem::path wastebinRoot("/Users/rob/Desktop/wastebin");
+    std::filesystem::path wastebinRoot("/Users/rob/wastebin");
 
     CLI::App app("A wastebin for your shell");
     std::vector<std::string> paths;
@@ -30,6 +30,5 @@ int main(int argc, const char *argv[]) {
         std::cout << "Moved to: " << targetPath << std::endl;
     }
 
-//
     return 0;
 }

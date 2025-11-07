@@ -9,8 +9,4 @@ namespace wastebin {
         REQUIRE(result == "0.1");
     }
 
-    TEST_CASE("Test case 2", "[Test]") {
-        REQUIRE(2 == 2);
-    }
-
 }
