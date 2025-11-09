@@ -15,14 +15,12 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }} 
     steps:
-      - name: 'Checkout sources'
-        uses: actions/checkout@v4
+      - name: Checkout sources
+        uses: actions/checkout@v5
 
-      - name: 'Configure build'
-        run: cmake -Bbuild
+      - name: Build
+        run: cargo build
 
-      - name: 'Build'
-        run: cmake --build build --target all -j8
+      - name: Run unit-tests
+        run: cargo test
 
-      - name: 'Run tests'
-        run: ./build/src/unittests
