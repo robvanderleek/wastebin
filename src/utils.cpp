@@ -1,4 +1,6 @@
-#include <string>
+#include "utils.hpp"
+
+#include <stdexcept>
 
 int add(const int a, const int b)
 {
@@ -7,7 +9,7 @@ int add(const int a, const int b)
 
 std::string getHomeDirectory()
 {
-    const char *homedir = std::getenv("HOME");
+    const char* homedir = std::getenv("HOME");
     if (homedir)
     {
         return homedir;
