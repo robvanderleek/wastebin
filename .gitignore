@@ -1,5 +1,6 @@
 build/
 cmake-*/
+src/version.h
 
 
 # Added by cargo

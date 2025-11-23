@@ -18,9 +18,12 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v5
 
+      - name: Configure build
+        run: cmake -Bbuild
+
       - name: Build
-        run: cargo build
+        run: cmake --build build --target all -j8
 
       - name: Run unit-tests
-        run: cargo test
+        run: ./build/unittests
 
