@@ -25,5 +25,5 @@ jobs:
         run: cmake --build build --target all -j8
 
       - name: Run unit-tests
-        run: ./build/unittests
+        run: ./build/unittest
 
