@@ -1,0 +1,11 @@
+FROM ubuntu:24.04
+
+USER root
+
+RUN apt update && apt -y --no-install-recommends install \
+    build-essential \
+    ca-certificates \
+    cmake \
+    g++ \
+    gdb \
+    git
