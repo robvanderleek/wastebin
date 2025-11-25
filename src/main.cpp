@@ -1,4 +1,6 @@
 #include <iostream>
+#include <filesystem>
+#include "utils.hpp"
 #include "version.h"
 
 void usage()
@@ -28,6 +30,28 @@ int main(int argc, char* argv[])
         std::cout << "wastebin version " << WASTEBIN_VERSION << std::endl;
         return 0;
     }
-    std::cout << sayHello() << std::endl;
+    const auto homedir = getHomeDirectory();
+
+    const auto wastebinDir = std::filesystem::path(homedir) / "mywastebin";
+    if (!std::filesystem::exists(wastebinDir))
+    {
+        std::cout << "Creating wastebin directory at " << wastebinDir << std::endl;
+        std::filesystem::create_directory(wastebinDir);
+    }
+
+    for (int i = 1; i < argc; i++)
+    {
+        auto p = std::filesystem::path(argv[i]);
+        if (!std::filesystem::exists(p))
+        {
+            std::cout << "Path " << p << " does not exist, skipping." << std::endl;
+            continue;
+        }
+        auto dest = wastebinDir / p.filename();
+        std::cout << "Moving " << p << " to " << dest << std::endl;
+        std::filesystem::rename(p, dest);
+        std::cout << "Done." << std::endl;
+    }
+
     return 0;
 }
